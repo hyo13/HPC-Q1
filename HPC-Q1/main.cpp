@@ -12,7 +12,7 @@
 #include "TriMatrix.h"
 using namespace std;
 
-//
+// Vector Creator Syntax: (Start, Increment, End)
 vector <double> vec(double a, double b, double c){
     vector <double> x((c-a)/b+1);
     for (int i=0;i<(c-a)/b+1;i++){
