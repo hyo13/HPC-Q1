@@ -47,6 +47,36 @@ public:
         
     }
     
+    vector<double> operator* (vector<double> X){
+        int size=X.size();
+        
+        //diagm multiply X
+        vector<double> Am(size);
+        for (int i=0;i<size;i++){
+            Am[i]=(*diagm)[i]*X[i];
+        }
+        
+        //diagu multiply X
+        vector<double> Au(size);
+        Au[0]=0;
+        for (int i=1;i<size;i++){
+            Au[i]=(*diagu)[i-1]*X[i];
+        }
+        
+        //diagl multiply X
+        vector<double> Al(size);
+        for (int i=0;i<size-1;i++){
+            Al[i]=(*diagl)[i]*X[i];
+        }
+        Al[size-1]=0;
+
+        //Superposition of results
+        vector<double> B(size);
+        for (int i=0;i<size;i++){
+            B[i]=Am[i]+Au[i]+Al[i];
+        }
+        return B;
+    }
 };
 
 

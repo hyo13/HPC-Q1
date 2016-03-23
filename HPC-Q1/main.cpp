@@ -46,5 +46,8 @@ int main() {
         u0[i]=x[i]/(1-x[i]);
     }
     
+    //FORWARD EULER TIME INTEGRATION
+
+    
     return 0;
 }
