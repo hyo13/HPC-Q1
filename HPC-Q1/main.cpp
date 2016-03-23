@@ -14,7 +14,7 @@ using namespace std;
 
 int main() {
     
-    // INPUT
+    // INPUTS
     double L=1;
     double Nx=20;
     double T=5;
