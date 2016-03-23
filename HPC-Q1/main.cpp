@@ -29,7 +29,7 @@ int main() {
     // X-POSIION VECTOR
     vector <double> x(Nx+1);
     for (int i=0;i<Nx+1;i++){
-        x[i]=0+i*L;
+        x[i]=0+i*dx;
     }
     
     //INITIAL CONDITION
@@ -37,7 +37,7 @@ int main() {
     u0[1]=0;
     u0[x.size()]=0;
     for (int i=1;i<x.size()-1;i++){
-        u0[i]=x[i]/(1-x[i]);
+        u0[i]=x[i]*(1-x[i]);
     }
     
     //FORWARD EULER TIME INTEGRATION
