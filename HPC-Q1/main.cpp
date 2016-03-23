@@ -17,12 +17,12 @@ int main() {
     // INPUTS
     double L=1;
     double Nx=20;
-    double T=5;
-    double Nt=5000;
+    double T=60;
+    double dt=0.001;
     double alpha=1;
     
     // INITIAL CALCULATIONS
-    double dt=T/Nt;
+    double Nt=T/dt;
     double dx=L/Nx;
     double v=alpha*dt/pow(dx,2);
     
