@@ -27,17 +27,27 @@ int main() {
     double T;
     cin>>T; //T=5
     
-    cout<<"Nt (Number of Time Step) = ";
-    double Nt;
-    cin>>Nt; //Nt=5000
-    
     cout<<"alpha (Diffusivity Coefficient) = ";
     double alpha;
     cin>>alpha; //alpha=1
     
+    //calculate minimum input time step for Forward Euler to converge with v = or < 0.5
+    double dx=L/Nx;
+    double Ntmin=2*alpha*T/(pow(dx,2));
+    cout<<"MINIMUM TIME STEP: "<<Ntmin<<endl;
+    //Nt input
+    cout<<"Nt (Number of Time Step) = ";
+    double Nt;
+    cin>>Nt; //Nt=5000
+    
+    //check that Nt is > or = Ntmax to make sure Forward Euler converges
+    if (Nt<Ntmin){
+        cout<<"ERROR: Input Nt is smaller than minimum time step allowed. Program Terminated."<<endl;
+        terminate();
+    }
+    
     // INITIAL CALCULATIONS
     double dt=T/Nt;
-    double dx=L/Nx;
     double v=alpha*dt/pow(dx,2);
     
     // X-POSIION VECTOR
