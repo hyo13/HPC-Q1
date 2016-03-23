@@ -15,14 +15,28 @@ using namespace std;
 int main() {
     
     // INPUTS
-    double L=1;
-    double Nx=20;
-    double T=60;
-    double dt=0.001;
-    double alpha=1;
+    cout<<"L (Length of Bar) = ";
+    double L;
+    cin>>L; //L=1
+    
+    cout<<"Nx (Number of X Increments) = ";
+    double Nx;
+    cin>>Nx; //Nx=20
+    
+    cout<<"T (Total Run Time) = ";
+    double T;
+    cin>>T; //T=5
+    
+    cout<<"Nt (Number of Time Step) = ";
+    double Nt;
+    cin>>Nt; //Nt=5000
+    
+    cout<<"alpha (Diffusivity Coefficient) = ";
+    double alpha;
+    cin>>alpha; //alpha=1
     
     // INITIAL CALCULATIONS
-    double Nt=T/dt;
+    double dt=T/Nt;
     double dx=L/Nx;
     double v=alpha*dt/pow(dx,2);
     

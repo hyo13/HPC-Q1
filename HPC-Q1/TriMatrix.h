@@ -70,7 +70,7 @@ public:
             Al[i]=(*diagl)[i-1]*X[i-1];
         }
 
-        //Superposition of results
+        //Superposition of Results
         vector<double> B(s);
         for (int i=0;i<s;i++){
             B[i]=Am[i]+Au[i]+Al[i];
