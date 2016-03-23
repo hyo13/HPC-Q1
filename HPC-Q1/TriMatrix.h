@@ -70,7 +70,7 @@ public:
         }
         Al[size-1]=0;
 
-        //Superposition of results
+        //Superposition of Results
         vector<double> B(size);
         for (int i=0;i<size;i++){
             B[i]=Am[i]+Au[i]+Al[i];

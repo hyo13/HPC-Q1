@@ -12,15 +12,6 @@
 #include "TriMatrix.h"
 using namespace std;
 
-// Vector Creator Syntax: (Start, Increment, End)
-vector <double> vec(double a, double b, double c){
-    vector <double> x((c-a)/b+1);
-    for (int i=0;i<(c-a)/b+1;i++){
-        x[i]=a+i*b;
-    }
-    return x;
-}
-
 int main() {
     
     // INPUT
@@ -36,7 +27,10 @@ int main() {
     double v=alpha*dt/pow(dx,2);
     
     // X-POSIION VECTOR
-    vector <double> x=vec(0,L/Nx,L);
+    vector <double> x(Nx+1);
+    for (int i=0;i<Nx+1;i++){
+        x[i]=0+i*L;
+    }
     
     //INITIAL CONDITION
     vector <double> u0(x.size());
@@ -47,7 +41,17 @@ int main() {
     }
     
     //FORWARD EULER TIME INTEGRATION
-
+    vector <double> u0new(x.size());
+    TriMatrix M(v,x.size());
+    for (int i=0;i<Nt;i++){
+        u0new=M*u0;
+        u0=u0new;
+    }
+    
+    //OUTPUT RESULTS
+    for (int i=0;i<x.size();i++){
+        cout<<u0new[i]<<endl;
+    }
     
     return 0;
 }
