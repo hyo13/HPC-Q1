@@ -33,7 +33,7 @@ int main() {
     
     //calculate minimum input time step for Forward Euler to converge with v = or < 0.5
     double dx=L/Nx;
-    double Ntmin=2*alpha*T/(pow(dx,2));
+    int Ntmin=2*alpha*T/(pow(dx,2));
     cout<<"MINIMUM TIME STEP: "<<Ntmin<<endl;
     //Nt input
     cout<<"Nt (Number of Time Step) = ";
